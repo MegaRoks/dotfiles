@@ -4,7 +4,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # Theme
 ZSH_THEME="robbyrussell"
 
-# Plugins
+# Plugins (only built-in ones)
 plugins=(
     git
     docker
@@ -13,8 +13,6 @@ plugins=(
     npm
     node
     yarn
-    zsh-autosuggestions
-    zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
