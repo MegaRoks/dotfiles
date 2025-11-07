@@ -10,6 +10,13 @@ cd ~/dotfiles
 source ~/.zshrc
 ```
 
+The install script will:
+- Create symbolic links:
+  - `~/.zshrc` → `~/dotfiles/.zshrc`
+  - `~/scripts` → `~/dotfiles/scripts`
+- Backup existing files with timestamps
+- Make all scripts executable
+
 ## Docker Scripts
 
 ### docker-clean
@@ -57,5 +64,21 @@ After installation, you can use these commands from anywhere:
 docker-clean   # Full Docker cleanup
 docker-nuke    # Remove all containers
 docker-prune   # Remove stopped containers only
+```
+
+## Benefits
+
+- ✅ Version control for shell configuration
+- ✅ Easy sync between multiple machines
+- ✅ Automatic backups before installation
+- ✅ Single source of truth for settings
+
+## Uninstall
+
+To remove the setup:
+```bash
+rm ~/.zshrc ~/scripts
+# Restore from backup if needed
+cp ~/.zshrc.backup.YYYYMMDD_HHMMSS ~/.zshrc
 ```
 
