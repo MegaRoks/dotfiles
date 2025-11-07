@@ -1,0 +1,23 @@
+#!/bin/zsh
+
+echo "💣 This will remove ALL containers (including running ones)!"
+read "?Continue? (y/N): " confirm
+
+if [[ $confirm == [yY] || $confirm == [yY][eE][sS] ]]; then
+    CONTAINERS=$(docker ps -aq)
+    
+    if [ -z "$CONTAINERS" ]; then
+        echo "ℹ️  No containers found"
+        exit 0
+    fi
+    
+    echo "🔴 Stopping all containers..."
+    docker stop $(docker ps -aq) 2>/dev/null
+    
+    echo "🗑️  Removing all containers..."
+    docker rm $(docker ps -aq) 2>/dev/null
+    
+    echo "✅ All containers removed!"
+else
+    echo "❌ Cancelled"
+fi

@@ -1,29 +1,61 @@
-# Мои Dotfiles
+# My Dotfiles
 
-Персональные конфигурационные файлы и скрипты.
+Personal configuration files and scripts.
 
-## Установка
+## Installation
 ```bash
-git clone https://github.com/ваш-username/dotfiles.git ~/dotfiles
+git clone git@personal.github.com:megaroks/dotfiles.git ~/dotfiles
 cd ~/dotfiles
 ./install.sh
 source ~/.zshrc
 ```
 
-## Скрипты
+## Docker Scripts
 
 ### docker-clean
-Полная очистка Docker (контейнеры, образы, volumes, сети)
+Complete Docker cleanup: containers, images, volumes, and networks
 ```bash
 docker-clean
 ```
 
-## Структура
+### docker-nuke
+Remove ALL containers (including running ones) 💣
+```bash
+docker-nuke
+```
+
+### docker-prune
+Remove only stopped containers
+```bash
+docker-prune
+```
+
+## Structure
 ```
 dotfiles/
 ├── scripts/
-│   └── docker-clean
+│   ├── docker-clean
+│   ├── docker-nuke
+│   └── docker-prune
 ├── .zshrc
 ├── install.sh
 └── README.md
 ```
+
+## Scripts Comparison
+
+| Script | What it removes | Running containers |
+|--------|----------------|-------------------|
+| `docker-clean` | Everything (containers + images + volumes + networks) | ✅ Stops and removes |
+| `docker-nuke` | All containers | ✅ Stops and removes |
+| `docker-prune` | Only stopped containers | ❌ Doesn't touch |
+
+## Usage
+
+After installation, you can use these commands from anywhere:
+```bash
+docker-clean   # Full Docker cleanup
+docker-nuke    # Remove all containers
+docker-prune   # Remove stopped containers only
+```
+

@@ -1,6 +1,6 @@
-# Путь к скриптам
+# Path to scripts
 export PATH="$HOME/scripts:$PATH"
 
-# Ваши алиасы и настройки
+# Your aliases and settings
 # ...
 

@@ -2,24 +2,24 @@
 
 DOTFILES_DIR="$HOME/dotfiles"
 
-echo "🚀 Установка dotfiles..."
+echo "🚀 Installing dotfiles..."
 
-# Создать символическую ссылку для .zshrc
+# Create symbolic link for .zshrc
 if [ -f "$HOME/.zshrc" ]; then
-    echo "📦 Создаю бэкап существующего .zshrc"
+    echo "📦 Backing up existing .zshrc"
     mv "$HOME/.zshrc" "$HOME/.zshrc.backup"
 fi
 ln -sf "$DOTFILES_DIR/.zshrc" "$HOME/.zshrc"
 
-# Создать символическую ссылку для scripts
+# Create symbolic link for scripts
 if [ -d "$HOME/scripts" ]; then
-    echo "📦 Создаю бэкап существующей папки scripts"
+    echo "📦 Backing up existing scripts directory"
     mv "$HOME/scripts" "$HOME/scripts.backup"
 fi
 ln -sf "$DOTFILES_DIR/scripts" "$HOME/scripts"
 
-# Сделать все скрипты исполняемыми
+# Make all scripts executable
 chmod +x "$DOTFILES_DIR/scripts"/*
 
-echo "✅ Dotfiles установлены!"
-echo "🔄 Выполните: source ~/.zshrc"
+echo "✅ Dotfiles installed!"
+echo "🔄 Run: source ~/.zshrc"
